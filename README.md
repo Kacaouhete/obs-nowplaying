@@ -89,8 +89,6 @@ Make sure the track is actually playing and the script is still running in the T
 
 To avoid opening Terminal before every stream, you can create a shortcut or launcher that runs `node /path/to/nowplaying.js`.
 
-## License
 
 ## License
-
 This project is released under the [MIT License](https://github.com/Kacaouhete/obs-nowplaying/blob/main/LICENSE).
