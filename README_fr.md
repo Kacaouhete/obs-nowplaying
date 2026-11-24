@@ -88,5 +88,4 @@ Vérifie que le morceau est bien en lecture et que le script tourne toujours dan
 Pour éviter d'ouvrir le Terminal à chaque stream, tu peux créer un raccourci ou un lanceur qui exécute `node /chemin/vers/nowplaying.js`.
 
 ## Licence
-
-À compléter (par exemple MIT).
+Ce projet est distribué sous licence [MIT](https://github.com/Kacaouhete/obs-nowplaying/blob/main/LICENSE).
