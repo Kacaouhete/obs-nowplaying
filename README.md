@@ -28,8 +28,8 @@ One file, **no dependencies**: a small Node server reads Apple Music through App
 
 2. Get the project:
    ```bash
-   git clone https://github.com/USERNAME/REPO.git
-   cd REPO
+   git clone https://github.com/Kacaouhete/obs-nowplaying.git
+   cd obs-nowplaying
    ```
    Or just download `nowplaying.js` and put it in a folder.
 
