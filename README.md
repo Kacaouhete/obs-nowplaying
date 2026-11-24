@@ -91,4 +91,6 @@ To avoid opening Terminal before every stream, you can create a shortcut or laun
 
 ## License
 
-To be completed (for example MIT).
+## License
+
+This project is released under the [MIT License](LICENSE).
