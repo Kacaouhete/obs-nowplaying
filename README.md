@@ -93,4 +93,4 @@ To avoid opening Terminal before every stream, you can create a shortcut or laun
 
 ## License
 
-This project is released under the [MIT License](LICENSE).
+This project is released under the [MIT License](https://github.com/Kacaouhete/obs-nowplaying/blob/main/LICENSE).
