@@ -4,7 +4,7 @@ A "now playing" widget that shows the music playing in **Apple Music** (macOS) o
 
 One file, **no dependencies**: a small Node server reads Apple Music through AppleScript and serves an HTML page that you add to OBS as a *Browser Source*.
 
-*Lire en français : [README.md](README.md)*
+*Lire en français : [README_fr.md](README.md)*
 
 ## Requirements
 
@@ -27,8 +27,8 @@ One file, **no dependencies**: a small Node server reads Apple Music through App
 
 2. Get the project:
    ```bash
-   git clone https://github.com/YOUR_USERNAME/YOUR_REPO.git
-   cd YOUR_REPO
+   git clone https://github.com/Kacaouhete/obs-nowplaying.git
+   cd obs-nowplaying
    ```
    Or just download `nowplaying.js` and put it in a folder.
 
