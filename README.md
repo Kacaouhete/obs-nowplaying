@@ -1,95 +1,92 @@
-[README.en.md](https://github.com/user-attachments/files/35329043/README.en.1.md)
-# 🎵 Apple Music Now Playing for OBS
+# 🎵 Apple Music Now Playing pour OBS
 
-A "now playing" widget that shows the music playing in **Apple Music** (macOS) on your stream: title, artist, album art, a progress bar, and play / pause state.
+Un widget « now playing » pour afficher sur ton stream la musique jouée dans **Apple Music** (macOS) : titre, artiste, pochette, barre de progression et état lecture / pause.
 
-One file, **no dependencies**: a small Node server reads Apple Music through AppleScript and serves an HTML page that you add to OBS as a *Browser Source*.
+Un seul fichier, **aucune dépendance** : un petit serveur Node lit Apple Music via AppleScript et sert une page HTML que tu ajoutes comme *Source navigateur* dans OBS.
 
-*Lire en français : [README.md](README.md)*
-
-## Requirements
+## Prérequis
 
 - macOS
-- Apple Music (the "Music" app)
-- [Node.js](https://nodejs.org) (LTS version)
+- Apple Music (l'app « Musique »)
+- [Node.js](https://nodejs.org) (version LTS)
 - OBS Studio
 
 ## Installation
 
-1. Install Node.js:
+1. Installe Node.js :
    ```bash
    brew install node
    ```
-   On Apple Silicon Macs, if Homebrew shows a Rosetta error, use:
+   Sur Mac Apple Silicon, si Homebrew affiche une erreur Rosetta, utilise :
    ```bash
    arch -arm64 brew install node
    ```
-   You can also download the installer from [nodejs.org](https://nodejs.org).
+   Tu peux aussi télécharger l'installeur sur [nodejs.org](https://nodejs.org).
 
-2. Get the project:
+2. Récupère le projet :
    ```bash
-   git clone https://github.com/Kacaouhete/obs-nowplaying.git
-   cd obs-nowplaying
+   git clone https://github.com/TON_PSEUDO/TON_REPO.git
+   cd TON_REPO
    ```
-   Or just download `nowplaying.js` and put it in a folder.
+   Ou télécharge simplement `nowplaying.js` et place-le dans un dossier.
 
-3. Start the server:
+3. Lance le serveur :
    ```bash
    node nowplaying.js
    ```
-   You should see `OK → http://localhost:3939`. Keep the Terminal window open while you stream.
+   Tu dois voir `OK → http://localhost:3939`. Laisse la fenêtre du Terminal ouverte pendant ton stream.
 
-4. On first launch, macOS asks for permission: "Terminal wants to control Music". Click **OK**.
+4. Au premier lancement, macOS demande l'autorisation « Terminal souhaite contrôler Musique ». Clique sur **OK**.
 
-## Add the widget to OBS
+## Ajouter le widget dans OBS
 
-1. In OBS: **Sources → + → Browser**
-2. URL: `http://localhost:3939`
-3. Width: `500`, height: `120` (adjust as needed)
-4. Confirm.
+1. Dans OBS : **Sources → + → Navigateur**
+2. URL : `http://localhost:3939`
+3. Largeur : `500`, hauteur : `120` (à ajuster)
+4. Valide.
 
-To test without OBS, open `http://localhost:3939` in your browser while a track is playing.
+Pour tester sans OBS, ouvre `http://localhost:3939` dans ton navigateur pendant qu'un morceau joue.
 
-## How it works
+## Fonctionnement
 
-- The widget appears as soon as a track is loaded in Apple Music.
-- When paused, it stays visible with the ⏸ icon and the bar frozen.
-- It fades out when playback is stopped.
-- Data is refreshed every 2 seconds, and the progress bar moves smoothly between updates.
+- Le widget s'affiche dès qu'un morceau est chargé dans Apple Music.
+- En pause, il reste affiché avec l'icône ⏸ et la barre figée.
+- Il disparaît en fondu quand la lecture est arrêtée.
+- Les données sont mises à jour toutes les 2 secondes, et la barre de progression avance de façon fluide entre deux mises à jour.
 
-## Customization
+## Personnalisation
 
-Everything lives in `nowplaying.js`:
+Tout se trouve dans `nowplaying.js` :
 
-| What | Where |
+| Quoi | Où |
 |---|---|
-| Colors, fonts, sizes, rounded corners | `<style>` block inside the `HTML` constant |
-| Server port | `PORT` constant at the top of the file |
-| Play / pause icons | `draw()` function inside the `HTML` constant |
+| Couleurs, polices, tailles, arrondis | bloc `<style>` dans la constante `HTML` |
+| Port du serveur | constante `PORT` en haut du fichier |
+| Icônes lecture / pause | fonction `draw()` dans la constante `HTML` |
 
-After any change: restart the script (`Ctrl+C`, then `node nowplaying.js`), then in OBS right-click the source → **Properties → Refresh cache of current page**.
+Après une modification : relance le script (`Ctrl+C` puis `node nowplaying.js`), puis dans OBS, clic droit sur la source → **Propriétés → Rafraîchir le cache de la page actuelle**.
 
-## Troubleshooting
+## Dépannage
 
-**Nothing shows up**
-Check the permission: System Settings → Privacy & Security → Automation → enable **Music** under **Terminal**.
+**Rien ne s'affiche**
+Vérifie l'autorisation : Réglages Système → Confidentialité et sécurité → Automatisation → coche **Musique** sous **Terminal**.
 
-**Album art stays grey**
-Some streamed tracks don't expose their artwork through AppleScript. The text still displays normally.
+**La pochette reste grise**
+Certains titres en streaming n'exposent pas leur pochette via AppleScript. Le texte s'affiche normalement.
 
-**`EADDRINUSE` on startup**
-The port is already in use. Change `PORT` in the file (for example `3940`) and use the same value in the OBS URL.
+**`EADDRINUSE` au lancement**
+Le port est déjà utilisé. Change `PORT` dans le fichier (par exemple `3940`) et mets la même valeur dans l'URL d'OBS.
 
-**The widget is out of date in OBS**
-Refresh the browser source cache (see above).
+**Le widget n'est pas à jour dans OBS**
+Rafraîchis le cache de la source navigateur (voir plus haut).
 
-**The progress bar doesn't move**
-Make sure the track is actually playing and the script is still running in the Terminal.
+**La barre de progression ne bouge pas**
+Vérifie que le morceau est bien en lecture et que le script tourne toujours dans le Terminal.
 
-## Run automatically (optional)
+## Lancer automatiquement (optionnel)
 
-To avoid opening Terminal before every stream, you can create a shortcut or launcher that runs `node /path/to/nowplaying.js`.
+Pour éviter d'ouvrir le Terminal à chaque stream, tu peux créer un raccourci ou un lanceur qui exécute `node /chemin/vers/nowplaying.js`.
 
-## License
+## Licence
 
-This project is released under the [MIT License](LICENSE).
+À compléter (par exemple MIT).
