@@ -25,8 +25,8 @@ Un seul fichier, **aucune dépendance** : un petit serveur Node lit Apple Music 
 
 2. Récupère le projet :
    ```bash
-   git clone https://github.com/TON_PSEUDO/TON_REPO.git
-   cd TON_REPO
+   git clone https://github.com/Kacaouhete/obs-nowplaying.git
+   cd obs-nowplaying
    ```
    Ou télécharge simplement `nowplaying.js` et place-le dans un dossier.
 
